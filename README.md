@@ -45,6 +45,6 @@ Um serviço em segundo plano escuta esse canal e envia um e-mail de confirmaçã
 - [ASP.NET Core 8]
 - Clean Architecture
 - [Redis](https://redis.io/) (Pub/Sub)
-- (CQRS) + MediatR
+- CQRS + MediatR
 - SQL Server + Entity Framework Core
 - BackgroundService com Redis Listener
