@@ -12,20 +12,18 @@ namespace NotificadorPedidos.Worker.Process
         private readonly EmailSetting _emailSetting;
         private readonly IRedisService _redisService;
         private readonly RedisSetting _redisSetting;
-        private readonly ILogger<SubscribeMessageProcess> _logger;
-        public SubscribeMessageProcess(ISendEmailService emailService, IOptions<EmailSetting> emailSetting, IRedisService redisService, IOptions<RedisSetting> redisSetting, ILogger<SubscribeMessageProcess> logger)
+        public SubscribeMessageProcess(ISendEmailService emailService, IOptions<EmailSetting> emailSetting,IRedisService redisService,IOptions<RedisSetting> redisSetting)
         {
             _emailService = emailService;
             _emailSetting = emailSetting.Value;
             _redisService = redisService;
             _redisSetting = redisSetting.Value;
-            _logger = logger;
         }
 
         public async Task SubscribeMessageWork()
         {
-            var canal = $"{_redisSetting.Channel}";
-            _redisService.Subscribe<MessageDTO>(canal, async (redisMessage) =>
+            var fullChannel = $"{_redisSetting.Channel}";
+            _redisService.Subscribe<MessageDTO>(fullChannel, async (redisMessage) =>
             {
                 if (redisMessage is null) return;
                 var dtoEmail = new EmailDTO();

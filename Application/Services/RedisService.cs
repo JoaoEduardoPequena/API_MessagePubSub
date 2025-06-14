@@ -26,7 +26,8 @@ namespace Application.Services
         public async Task<bool> PublishAsync<T>(string channel, T message)
         {
             string _channel = GetCacheKey(channel);
-            var result=await _subscriber.PublishAsync(_channel, JsonConvert.SerializeObject(message));
+            var dto=JsonConvert.SerializeObject(message);
+            var result=await _subscriber.PublishAsync(_channel,dto);
             return result>=1 ? true : false;
         }
     }

@@ -4,9 +4,9 @@ namespace NotificadorPedidos.Worker.Workers
 {
     public class SubscribeMessageWork : BackgroundService
     {
-        private readonly ILogger<SubscribeMessageWork> _logger;
         private readonly ISubscribeMessageProcess _subscribeMessage;
-        public SubscribeMessageWork(ISubscribeMessageProcess subscribeMessage, ILogger<SubscribeMessageWork> logger)
+        private readonly ILogger<SubscribeMessageWork> _logger;
+        public SubscribeMessageWork(ISubscribeMessageProcess subscribeMessage,ILogger<SubscribeMessageWork> logger)
         {
             _subscribeMessage = subscribeMessage;
             _logger = logger;
@@ -14,11 +14,15 @@ namespace NotificadorPedidos.Worker.Workers
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
+            try
             {
                await _subscribeMessage.SubscribeMessageWork();
-               await Task.Delay(TimeSpan.FromSeconds(25), stoppingToken);
             }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while subscribing to messages. Error: {ex.Message}");
+            }
+           
         }
     }
 }
