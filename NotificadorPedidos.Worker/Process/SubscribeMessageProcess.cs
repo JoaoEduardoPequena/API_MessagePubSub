@@ -2,9 +2,9 @@
 using Infrastruture.Worker.Interfaces;
 using Infrastruture.Worker.Setting;
 using Microsoft.Extensions.Options;
-using ServiceGestaoDePedidos.Woker.Interfaces;
+using NotificadorPedidos.Worker.Interfaces;
 
-namespace ServiceGestaoDePedidos.Woker.Process
+namespace NotificadorPedidos.Worker.Process
 {
     public class SubscribeMessageProcess : ISubscribeMessageProcess
     {

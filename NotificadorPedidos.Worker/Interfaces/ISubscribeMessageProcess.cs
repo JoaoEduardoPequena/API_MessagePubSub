@@ -1,4 +1,4 @@
-﻿namespace ServiceGestaoDePedidos.Woker.Interfaces
+﻿namespace NotificadorPedidos.Worker.Interfaces
 {
     public interface ISubscribeMessageProcess
     {

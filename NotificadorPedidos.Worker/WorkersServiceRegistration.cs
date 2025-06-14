@@ -1,8 +1,8 @@
 ﻿using Infrastruture.Worker;
-using ServiceGestaoDePedidos.Woker.Interfaces;
-using ServiceGestaoDePedidos.Woker.Process;
+using NotificadorPedidos.Worker.Interfaces;
+using NotificadorPedidos.Worker.Process;
 
-namespace ServiceGestaoDePedidos.Woker
+namespace NotificadorPedidos.Worker
 {
     public static class WorkersServiceRegistration
     {

@@ -1,6 +1,6 @@
-using ServiceGestaoDePedidos.Woker.Interfaces;
+using NotificadorPedidos.Worker.Interfaces;
 
-namespace ServiceGestaoDePedidos.Woker.Workers
+namespace NotificadorPedidos.Worker.Workers
 {
     public class SubscribeMessageWork : BackgroundService
     {

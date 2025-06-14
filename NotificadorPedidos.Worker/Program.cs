@@ -1,5 +1,5 @@
-using ServiceGestaoDePedidos.Woker;
-using ServiceGestaoDePedidos.Woker.Workers;
+using NotificadorPedidos.Worker;
+using NotificadorPedidos.Worker.Workers;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddWorkersServiceGestaoPedidos(builder.Configuration);
